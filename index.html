@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forever Valentine 💖</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #ffe6ec, #ffd6e0);
+      color: #7a1c3a;
+      overflow-x: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      opacity: 0.6;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); }
+      100% { transform: translateY(-120vh) rotate(45deg); }
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 20px 120px;
+      display: none;
+      animation: fadeIn 0.8s ease;
+    }
+    section.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1.big {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .center-btn {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      padding: 14px 30px;
+      border-radius: 30px;
+      border: none;
+      background: #ff5c8a;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255,92,138,0.3);
+    }
+
+    /* Bottom nav */
+    nav {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border-radius: 40px;
+      padding: 10px 20px;
+      display: flex;
+      gap: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    nav button {
+      background: none;
+      color: #ff5c8a;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+    }
+
+    /* Memories */
+    .memories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .memory {
+      background: white;
+      padding: 10px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .memory:hover { transform: scale(1.05) rotate(-1deg); }
+    .memory img { width: 100%; border-radius: 12px; }
+
+    /* Ask page */
+    .ask-box {
+      background: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .ask-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+    #noBtn { position: relative; }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.animationDuration = 6 + Math.random() * 6 + 's';
+      document.body.appendChild(h);
+    }
+  </script>
+
+  <!-- HOME -->
+  <section id="home" class="active">
+    <h1 class="big">For My Forever Valentine 💖</h1>
+    <p class="quote">Every love story is beautiful, but ours is my favorite.</p>
+    <div class="center-btn">
+      <button onclick="go('letter')">Start the Journey</button>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section id="letter">
+    <h1 class="big">A Letter For You 💌</h1>
+    <p class="quote" style="font-size:1.2rem;">I made this little corner of the internet just for you, to show you how much you mean to me.</p>
+  </section>
+
+  <!-- MEMORIES -->
+  <section id="memories">
+    <h1 class="big">Our Memories 📸</h1>
+    <div class="memories">
+      <div class="memory"><img src="https://via.placeholder.com/300x400"><p>Memory One</p></div>
+      <div class="memory"><img src="https://via.placeholder.com/300x400"><p>Memory Two</p></div>
+      <div class="memory"><img src="https://via.placeholder.com/300x400"><p>Memory Three</p></div>
+    </div>
+  </section>
+
+  <!-- REASONS -->
+  <section id="reasons">
+    <h1 class="big">Why I Love You 💗</h1>
+    <p class="quote" style="font-size:1.3rem;">Because you make ordinary moments feel magical.</p>
+  </section>
+
+  <!-- ASK -->
+  <section id="ask">
+    <div class="ask-box">
+      <h1 class="big">Will You Be My Valentine? 💕</h1>
+      <div class="ask-actions">
+        <button onclick="yes()">YES 💖</button>
+        <button id="noBtn">NO 😢</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAV -->
+  <nav>
+    <button onclick="go('home')">Home</button>
+    <button onclick="go('letter')">Letter</button>
+    <button onclick="go('memories')">Memories</button>
+    <button onclick="go('reasons')">Reasons</button>
+    <button onclick="go('ask')">Ask</button>
+  </nav>
+
+  <script>
+    function go(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    const noBtn = document.getElementById('noBtn');
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 100 - 50;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    function yes() {
+      alert('YAY 💖 You just made me the happiest person alive!');
+    }
+  </script>
+
+</body>
+</html>
